@@ -1,0 +1,91 @@
+@layer components {
+  .toggle {
+    @apply relative inline-flex items-center
+    h-5 w-10 shrink-0 cursor-pointer rounded-full
+    border-[3px] border-transparent
+    transition-colors duration-200 ease-in-out
+    disabled:cursor-default
+    focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-2 focus-visible:outline-primary-500 focus-visible:transition-none;
+  }
+
+  .toggle-dot {
+    @apply pointer-events-none inline-block
+    h-3.5 w-3.5 transform rounded-full
+    bg-white shadow-xl ring-0
+    transition duration-200 ease-in-out;
+  }
+}
+
+@layer components {
+  .checkbox {
+    @apply appearance-none w-5 h-5 rounded bg-ui-100
+    border border-solid border-ui-300 shadow
+    transition-[background-image_background-color_border] duration-100 ease-in-out
+    hover:cursor-pointer
+    checked:bg-primary-500 checked:border-primary-500
+    checked:bg-[url("@/assets/gds2/icons/check/check.svg")]
+    checked:bg-[length:10px] checked:bg-no-repeat checked:bg-center
+    disabled:cursor-default
+    disabled:checked:bg-[url("@/assets/gds2/icons/check/check_disabled.svg")]
+    dark:disabled:checked:bg-[url("@/assets/gds2/icons/check/check_dark_disabled.svg")]
+    focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-2 focus-visible:outline-primary-500 focus-visible:transition-none;
+  }
+}
+
+@layer components {
+  .radio {
+    @apply appearance-none w-5 h-5 rounded-full bg-ui-100
+    border border-solid border-ui-300 shadow
+    transition-[background-image_background-color_border] duration-100 ease-in-out
+    hover:cursor-pointer
+    checked:bg-primary-500 checked:border-primary-500
+    checked:bg-[url("@/assets/gds2/icons/dot/dot.svg")]
+    checked:bg-[length:8px] checked:bg-no-repeat checked:bg-center
+    disabled:cursor-default
+    disabled:checked:bg-[url("@/assets/gds2/icons/dot/dot_disabled.svg")]
+    dark:disabled:checked:bg-[url("@/assets/gds2/icons/dot/dot_dark_disabled.svg")];
+  }
+}
+
+@layer components {
+  .segmented-control {
+    @apply grid grid-flow-col auto-cols-fr w-fit h-fit border bg-ui-200 border-solid border-ui-300 p-px rounded-lg;
+
+    input {
+      @apply hidden appearance-none;
+    }
+
+    label {
+      @apply relative cursor-pointer text-base text-ui-800 text-center capitalize rounded-md bg-none px-3 py-1.5 z-0 select-none transition ease-in-out before:absolute;
+    }
+
+    label:first-of-type::before {
+      @apply bg-ui-100 shadow-md transition w-full h-full -z-10 rounded-md top-0 left-0;
+    }
+
+    input:checked + label {
+      @apply text-ui-900;
+    }
+  }
+
+  .segmented-control-sm {
+    label {
+      @apply text-sm px-2 py-px;
+      span.material-symbols-outlined {
+        @apply text-xl;
+      }
+    }
+  }
+
+  .segmented-control-square {
+    label {
+      @apply w-10;
+    }
+  }
+
+  .segmented-control-sm.segmented-control-square {
+    label {
+      @apply w-8;
+    }
+  }
+}

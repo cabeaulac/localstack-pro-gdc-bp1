@@ -1,0 +1,88 @@
+@layer components {
+  .btn {
+    @apply flex items-center justify-center
+    rounded-lg text-base font-normal
+    h-10 w-fit px-3 py-2 gap-2
+    transition select-none disabled:cursor-not-allowed
+    focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-2 focus-visible:outline-primary-500 focus-visible:transition-none;
+  }
+
+  .btn-square, .btn-circle {
+    @apply w-10;
+  }
+
+  .btn-sm {
+    @apply h-7 px-2 py-1 text-sm gap-1;
+    &.btn-square, &.btn-circle {
+      @apply w-7;
+    }
+  }
+
+  .btn-md {
+    @apply h-8 px-2 py-1 text-sm gap-1;
+    &.btn-square, &.btn-circle {
+      @apply w-8;
+    }
+  }
+
+  .btn-lg {
+    @apply h-10 px-3 py-2 text-base gap-2;
+    &.btn-square, &.btn-circle {
+      @apply w-10;
+    }
+  }
+
+  .btn-xl {
+    @apply h-13 px-4 py-3 text-xl gap-2;
+    &.btn-square, &.btn-circle {
+      @apply w-13;
+    }
+  }
+
+  .btn-circle {
+    @apply rounded-full;
+  }
+
+  .btn-primary {
+    @apply text-white bg-primary-500 shadow-lg
+    hover:bg-primary-400
+    disabled:hover:bg-primary-500
+    focus-visible:bg-primary-400
+    active:bg-primary-600
+    disabled:active:bg-primary-500
+    dark:disabled:text-white/50;
+  }
+
+  .btn-secondary {
+    @apply border border-solid border-ui-300 bg-ui-100 text-ui-900 shadow-lg
+    hover:bg-ui-200
+    disabled:hover:bg-ui-100
+    focus-visible:bg-ui-200
+  }
+
+  .btn-borderless {
+    @apply text-primary-500 bg-transparent
+    hover:bg-primary-100
+    disabled:hover:bg-transparent
+    focus-visible:bg-primary-100
+    active:bg-transparent
+    disabled:active:bg-transparent;
+    span {
+      @apply text-inherit;
+    }
+  }
+}
+
+.tab {
+  @apply flex items-center justify-center text-base text-ui-900 w-fit h-10 focus-visible:outline-0;
+
+  &.tab-underline {
+    @apply border-b-2 border-solid border-b-ui-100;
+  }
+
+  &.router-link-exact-active,
+  &.tab-underline-selected {
+    @apply border-b-primary-500 text-primary-500;
+  }
+}
+

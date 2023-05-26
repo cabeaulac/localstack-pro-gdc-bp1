@@ -1,0 +1,32 @@
+{
+  "compilerOptions": {
+    "lib": [
+      "esnext"
+    ],
+    "sourceMap": true,
+    "module": "commonjs",
+    "target": "esnext",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "moduleResolution": "node",
+    "allowUnusedLabels": false,
+    "allowUnreachableCode": false,
+    //    "exactOptionalPropertyTypes": true,
+    "noFallthroughCasesInSwitch": true,
+    //    "noImplicitOverride": true,
+    "noImplicitReturns": true,
+    //    "noPropertyAccessFromIndexSignature": true,
+    //    "noUncheckedIndexedAccess": true,
+    "noUnusedLocals": false,
+    "experimentalDecorators": true,
+    "resolveJsonModule": true,
+    "noUnusedParameters": false,
+    "importsNotUsedAsValues": "remove",
+    "traceResolution": false,
+    "listEmittedFiles": false,
+    "listFiles": false,
+    "pretty": true
+  }
+}

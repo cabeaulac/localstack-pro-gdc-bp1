@@ -1,0 +1,208 @@
+@use "sass:color";
+
+// COLORS
+$white: #ffffff;
+$black: #1c1c1c;
+
+@function numberify($color) {
+  @return #{color.red($color)} #{color.green($color)} #{color.blue($color)};
+}
+
+@mixin createColor($name, $color, $theme: "light") {
+  // creates base, hover, pressed, border, and bg colors based on one color
+  // For $color, bright & saturated colors work best
+  // The names "primary" and "secondary" are hard-coded for autocompletion purposes (good developer experience)
+  @if ($name == "primary") {
+    --primary-base: #{$color};
+    --tw-primary-base: #{numberify($color)};
+    --primary-hover: #{color.mix($color, $white, 80%)};
+    --tw-primary-hover: #{numberify(color.mix($color, $white, 80%))};
+    --primary-pressed: #{color.mix($color, $black, 80%)}; // pressed, active, & visited
+    --tw-primary-pressed: #{numberify(color.mix($color, $black, 80%))}; // pressed, active, & visited
+    @if ($theme == "light") {
+      --primary-border: #{color.mix($color, $white, 20%)};
+      --tw-primary-border: #{numberify(color.mix($color, $white, 20%))};
+      --primary-bg: #{color.mix($color, $white, 10%)};
+      --tw-primary-bg: #{numberify(color.mix($color, $white, 10%))};
+      --primary-focus: 0 0 2px 2px #{rgba($color, 0.15)}; // colored shadow
+      --tw-primary-focus: 0 0 2px 2px #{rgba($color, 0.15)}; // colored shadow
+      & *:disabled {
+        --primary-base: #{color.mix($color, $white, 40%)};
+        --tw-primary-base: #{numberify(color.mix($color, $white, 40%))};
+      }
+    } @else if ($theme == "dark") {
+      --primary-border: #{color.mix($color, $black, 20%)};
+      --tw-primary-border: #{numberify(color.mix($color, $black, 20%))};
+      --tw-primary-bg: #{numberify(color.mix($color, $black, 10%))};
+      --primary-focus: 0 0 0.2rem 0.2rem #{rgba($color, 0.18)}; // colored shadow
+      --tw-primary-focus: 0 0 0.2rem 0.2rem #{rgba($color, 0.18)}; // colored shadow
+      & *:disabled {
+        --primary-base: #{color.mix($color, $black, 40%)};
+        --tw-primary-base: #{numberify(color.mix($color, $black, 40%))};
+      }
+    }
+  } @else if ($name == "secondary") {
+    --secondary-base: #{$color};
+    --secondary-hover: #{color.mix($color, $white, 80%)};
+    --secondary-pressed: #{color.mix($color, $black, 80%)}; // pressed, active, & visited
+    @if ($theme == "light") {
+      --secondary-disabled: #{color.mix($color, $white, 40%)};
+      --secondary-border: #{color.mix($color, $white, 20%)};
+      --secondary-bg: #{color.mix($color, $white, 10%)};
+      --secondary-focus: 0 0 0.2rem 0.2rem #{rgba($color, 0.15)}; // colored shadow
+    } @else if ($theme == "dark") {
+      --secondary-disabled: #{color.mix($color, $black, 40%)};
+      --secondary-border: #{color.mix($color, $black, 20%)};
+      --secondary-bg: #{color.mix($color, $black, 10%)};
+      --secondary-focus: 0 0 0.2rem 0.2rem #{rgba($color, 0.18)}; // colored shadow
+    }
+  } @else {
+    --#{$name}-base: #{$color};
+    --#{$name}-hover: #{color.mix($color, $white, 80%)};
+    --#{$name}-pressed: #{color.mix($color, $black, 80%)}; // pressed, active, & visited
+    @if ($theme == "light") {
+      --#{$name}-disabled: #{color.mix($color, $white, 40%)};
+      --#{$name}-border: #{color.mix($color, $white, 20%)};
+      --#{$name}-bg: #{color.mix($color, $white, 10%)};
+      --#{$name}-focus: 0 0 0.2rem 0.2rem #{rgba($color, 0.15)}; // colored shadow
+    } @else if ($theme == "dark") {
+      --#{$name}-disabled: #{color.mix($color, $black, 40%)};
+      --#{$name}-border: #{color.mix($color, $black, 20%)};
+      --#{$name}-bg: #{color.mix($color, $black, 10%)};
+      --#{$name}-focus: 0 0 0.2rem 0.2rem #{rgba($color, 0.18)}; // colored shadow
+    }
+  }
+}
+
+@mixin createGrayscale($white, $black, $theme: "light", $tint: #ffffff, $tintAmt: 0%) {
+  // $name is not available for autocompletion purposes (good developer experience)
+    --white: #{$white};
+    --black: #{$black};
+  @if ($theme == "light") {
+    --ui-content1: #{color.mix($tint, $black, $tintAmt)};
+    --tw-ui-content1: #{numberify(color.mix($tint, $black, $tintAmt))};
+    --ui-content2: #{color.mix($tint, color.adjust($black, $lightness: 24%), $tintAmt)};
+    --tw-ui-content2: #{numberify(color.mix($tint, color.adjust($black, $lightness: 24%), $tintAmt))};
+    --ui-content3: #{color.mix($tint, color.adjust($black, $lightness: 48%), $tintAmt)};
+    --tw-ui-content3: #{numberify(color.mix($tint, color.adjust($black, $lightness: 48%), $tintAmt))};
+    --ui-border: #{color.mix($tint, color.adjust($white, $lightness: -9%), $tintAmt)};
+    --tw-ui-border: #{numberify(color.mix($tint, color.adjust($white, $lightness: -9%), $tintAmt))};
+    --ui-bg-secondary: #{color.mix($tint, color.adjust($white, $lightness: -3%), $tintAmt)};
+    --tw-ui-bg-secondary: #{numberify(color.mix($tint, color.adjust($white, $lightness: -3%), $tintAmt))};
+    --ui-bg-primary: #{color.mix($tint, $white, $tintAmt)};
+    --tw-ui-bg-primary: #{numberify(color.mix($tint, $white, $tintAmt))};
+    & *:disabled {
+      --white: #{color.adjust($white, $lightness: -2%)};
+      --tw-white: #{numberify(color.adjust($white, $lightness: -2%))};
+      --ui-content1: #{color.mix($tint, color.adjust($white, $lightness: -38%), $tintAmt)};
+      --tw-ui-content1: #{numberify(color.mix($tint, color.adjust($white, $lightness: -38%), $tintAmt))};
+      --ui-content2: #{color.mix($tint, color.adjust($white, $lightness: -28%), $tintAmt)};
+      --tw-ui-content2: #{numberify(color.mix($tint, color.adjust($white, $lightness: -28%), $tintAmt))};
+      --ui-content3: #{color.mix($tint, color.adjust($white, $lightness: -18%), $tintAmt)};
+      --tw-ui-content3: #{numberify(color.mix($tint, color.adjust($white, $lightness: -18%), $tintAmt))};
+      --ui-border: #{color.mix($tint, color.adjust($white, $lightness: -6%), $tintAmt)};
+      --tw-ui-border: #{numberify(color.mix($tint, color.adjust($white, $lightness: -6%), $tintAmt))};
+      --ui-bg-secondary: #{color.mix($tint, color.adjust($white, $lightness: -4%), $tintAmt)};
+      --tw-ui-bg-secondary: #{numberify(color.mix($tint, color.adjust($white, $lightness: -4%), $tintAmt))};
+      --ui-bg-primary: #{color.mix($tint, color.adjust($white, $lightness: -2%), $tintAmt)};
+      --tw-ui-bg-primary: #{numberify(color.mix($tint, color.adjust($white, $lightness: -2%), $tintAmt))};
+    }
+  } @else if ($theme == "dark") {
+    --ui-content1: #{color.mix($tint, color.adjust($white, $lightness: -9%), $tintAmt)};
+    --tw-ui-content1: #{numberify(color.mix($tint, color.adjust($white, $lightness: -9%), $tintAmt))};
+    --ui-content2: #{color.mix($tint, color.adjust($white, $lightness: -27%), $tintAmt)};
+    --tw-ui-content2: #{numberify(color.mix($tint, color.adjust($white, $lightness: -27%), $tintAmt))};
+    --ui-content3: #{color.mix($tint, color.adjust($black, $lightness: 36%), $tintAmt)};
+    --tw-ui-content3: #{numberify(color.mix($tint, color.adjust($black, $lightness: 36%), $tintAmt))};
+    --ui-border: #{color.mix($tint, color.adjust($black, $lightness: 15%), $tintAmt)};
+    --tw-ui-border: #{numberify(color.mix($tint, color.adjust($black, $lightness: 15%), $tintAmt))};
+    --ui-bg-secondary: #{color.mix($tint, color.adjust($black, $lightness: 4%), $tintAmt)};
+    --tw-ui-bg-secondary: #{numberify(color.mix($tint, color.adjust($black, $lightness: 4%), $tintAmt))};
+    --ui-bg-primary: #{color.mix($tint, color.adjust($black, $lightness: -1%), $tintAmt)};
+    --tw-ui-bg-primary: #{numberify(color.mix($tint, color.adjust($black, $lightness: -1%), $tintAmt))};
+    & *:disabled {
+      --white: #{color.adjust($white, $lightness: -51%)};
+      --tw-white: #{numberify(color.adjust($white, $lightness: -51%))};
+      --ui-content1: #{color.mix($tint, color.adjust($black, $lightness: 35%), $tintAmt)};
+      --tw-ui-content1: #{numberify(color.mix($tint, color.adjust($black, $lightness: 35%), $tintAmt))};
+      --ui-content2: #{color.mix($tint, color.adjust($black, $lightness: 28%), $tintAmt)};
+      --tw-ui-content2: #{numberify(color.mix($tint, color.adjust($black, $lightness: 28%), $tintAmt))};
+      --ui-content3: #{color.mix($tint, color.adjust($black, $lightness: 17%), $tintAmt)};
+      --tw-ui-content3: #{numberify(color.mix($tint, color.adjust($black, $lightness: 17%), $tintAmt))};
+      --ui-border: #{color.mix($tint, color.adjust($black, $lightness: 9%), $tintAmt)};
+      --tw-ui-border: #{numberify(color.mix($tint, color.adjust($black, $lightness: 9%), $tintAmt))};
+      --ui-bg-secondary: #{color.mix($tint, color.adjust($black, $lightness: 4%), $tintAmt)};
+      --tw-ui-bg-secondary: #{numberify(color.mix($tint, color.adjust($black, $lightness: 4%), $tintAmt))};
+      --ui-bg-primary: #{color.mix($tint, color.adjust($black, $lightness: 2%), $tintAmt)};
+      --tw-ui-bg-primary: #{numberify(color.mix($tint, color.adjust($black, $lightness: 2%), $tintAmt))};
+    }
+  }
+}
+
+
+:root,
+html.light {
+  // LIGHT THEME COLORS
+
+  // Grayscale
+  @include createGrayscale($white, $black);
+
+  // Colors
+  @include createColor("primary", #0085ff); // Blue (Primary/Brand Color)
+
+  @include createColor("green", #00ba34); // Green
+
+  @include createColor("orange", #f98600); // Orange
+
+  @include createColor("red", #e92c2c); // Red
+
+  @include createColor("pink", #e92c9d); // Pink
+
+  @include createColor("violet", #8b2ce9); // Violet
+
+  @include createColor("yellow", #facc15); // Yellow
+
+  // SHADOWS
+  --shadow1: 0 1px 1px rgba(0, 0, 0, 0.06);
+  --shadow2: 0 1px 3px rgba(0, 0, 0, 0.1), 0 2px 1px rgba(0, 0, 0, 0.06), 0 1px 1px rgba(0, 0, 0, 0.08);
+  --shadow3: 0 3px 5px rgba(0, 0, 0, 0.1), 0 1px 18px rgba(0, 0, 0, 0.06), 0 6px 10px rgba(0, 0, 0, 0.08);
+  --shadow4: 0 11px 15px rgba(0, 0, 0, 0.1), 0 9px 46px rgba(0, 0, 0, 0.06), 0 24px 38px rgba(0, 0, 0, 0.04);
+
+  --inner-shadow1: inset 0 0.1rem 0.1rem rgba(0, 0, 0, 0.06);
+  --inner-shadow2: inset 0 0.1rem 0.3rem rgba(0, 0, 0, 0.1), inset 0 0.2rem 0.1rem rgba(0, 0, 0, 0.06), inset 0 0.1rem 0.1rem rgba(0, 0, 0, 0.08);
+  --inner-shadow-active: inset 0 -0.2rem 0 var(--primary-base);
+  --inner-shadow-inactive: inset 0 -0.1rem 0 var(--ui-border);
+}
+
+html.dark {
+  // DARK THEME COLORS
+
+  // Grayscale
+  @include createGrayscale($white, $black, "dark");
+
+  // Colors
+  @include createColor("primary", #0085ff, "dark"); // Blue (Brand Color)
+
+  @include createColor("green", #00ba34, "dark"); // Green
+
+  @include createColor("orange", #f98600, "dark"); // Orange
+
+  @include createColor("red", #e92c2c, "dark"); // Red
+
+  @include createColor("pink", #e92c9d, "dark"); // Pink
+
+  @include createColor("violet", #8b2ce9, "dark"); // Violet
+
+  @include createColor("yellow", #facc15, "dark"); // Yellow
+
+  // SHADOWS
+  --shadow1: 0 1px 1px rgba(0, 0, 0, 0.12);
+  --shadow2: 0 1px 3px rgba(0, 0, 0, 0.2), 0 2px 1px rgba(0, 0, 0, 0.12), 0 1px 1px rgba(0, 0, 0, 0.16);
+  --shadow3: 0 3px 5px rgba(0, 0, 0, 0.2), 0 1px 18px rgba(0, 0, 0, 0.12), 0 6px 10px rgba(0, 0, 0, 0.16);
+  --shadow4: 0 11px 15px rgba(0, 0, 0, 0.2), 0 9px 46px rgba(0, 0, 0, 0.12), 0 24px 38px rgba(0, 0, 0, 0.08);
+
+  --inner-shadow1: inset 0 0.1rem 0.1rem rgba(0, 0, 0, 0.12);
+  --inner-shadow2: inset 0 0.1rem 0.3rem rgba(0, 0, 0, 0.2), inset 0 0.2rem 0.1rem rgba(0, 0, 0, 0.12), inset 0 0.1rem 0.1rem rgba(0, 0, 0, 0.16);
+  --inner-shadow-active: inset 0 -0.2rem 0 var(--primary-base);
+  --inner-shadow-inactive: inset 0 -0.1rem 0 var(--ui-border);
+}

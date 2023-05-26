@@ -1,0 +1,69 @@
+@layer components {
+  .editor {
+    @apply border border-solid border-ui-300 rounded-lg transition hover:cursor-text;
+
+    .ProseMirror,
+    .ProseMirror.ProseMirror-focused {
+      @apply outline-0 text-ui-800;
+    }
+
+    //.ProseMirror > * + * {
+    //  @apply mt-[0.75em];
+    //}
+
+    .ProseMirror p.is-editor-empty:first-child::before {
+      content: attr(data-placeholder);
+      @apply text-ui-700 float-left h-0 pointer-events-none;
+    }
+
+    .ProseMirror ul,
+    .ProseMirror ol {
+      @apply px-4;
+    }
+
+    .ProseMirror h1,
+    .ProseMirror h2,
+    .ProseMirror h3,
+    .ProseMirror h4,
+    .ProseMirror h5,
+    .ProseMirror h6 {
+      @apply tracking-wide;
+    }
+
+    .ProseMirror code {
+      @apply bg-ui-300 text-ui-800 rounded-sm;
+    }
+
+    .ProseMirror pre {
+      @apply bg-[#0D0D0D] text-white font-mono py-3 px-4 rounded-lg;
+    }
+
+    .ProseMirror pre code {
+      @apply text-inherit p-0 bg-none text-sm;
+    }
+
+    .ProseMirror img {
+      @apply max-w-full h-auto;
+    }
+
+    .ProseMirror blockquote {
+      @apply pl-4 border-l border-solid border-l-ui-300;
+    }
+
+    .ProseMirror hr {
+      @apply border-none border-t border-solid border-t-ui-300 my-8;
+    }
+  }
+
+  .editor:has(.ProseMirror-focused) {
+    @apply outline-0 border border-solid border-primary-500 shadow-focus hover:bg-ui-100;
+  }
+
+  .editor-content {
+    @apply p-4 transition hover:cursor-text;
+  }
+
+  .editor-toolbar {
+    @apply flex items-center px-3 pb-3 gap-0.5 transition hover:cursor-text;
+  }
+}
