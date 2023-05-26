@@ -88,7 +88,7 @@ This only happens when the system sits idle for awhile, not sure how long. Ref: 
 3. Clone this repos
 
 
-1. Create a file calle `.env` in the root of this repo. Put your Localstack Pro key in it like this
+1. Create a file called `.env-gdc` in the root of this repo. Put your Localstack Pro key in it like this
 
 ```shell
 export LOCALSTACK_API_KEY=YOUR_KEY_HERE
@@ -106,6 +106,7 @@ export LOCALSTACK_API_KEY=YOUR_KEY_HERE
 ```shell
 # Open GDC shell
 docker exec -it lsgdc-dev-1 bash -l
+# Deploy 3 pulumi pipelines
 make local-toplevel-deploy
 make local-db-deploy
 make local-lsgdc-deploy
@@ -116,6 +117,7 @@ make local-lsgdc-deploy
 ```shell
 # Open GDC shell
 docker exec -it lsgdc-dev-1 bash -l
+# run the UI locally
 make local-lsgdc-run-ui
 ```
 
