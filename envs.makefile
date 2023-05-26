@@ -56,8 +56,6 @@ non-toplevel%: export VPC_CIDR_BLOCK=10.72.0.0/16
 
 non-db%: export STACK_DIR=iac/db
 non-db%: export STACK_PREFIX=db
-non-db%: export AUTH0_AUDIENCE=CUSP
 
 non-jump%: export STACK_DIR=iac/jumphost
 non-jump%: export STACK_PREFIX=jump
-non-jump%: export AUTH0_AUDIENCE=CUSP
