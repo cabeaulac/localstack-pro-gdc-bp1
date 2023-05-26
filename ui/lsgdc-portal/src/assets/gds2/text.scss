@@ -1,0 +1,44 @@
+@layer components {
+  .badge {
+    @apply inline-flex items-center rounded-md px-1.5 py-0.5 text-xs font-medium cursor-default select-none;
+
+    &.badge-gray {
+      @apply bg-ui-200 text-ui-800 ring-ui-700/20 dark:ring-ui-700/30;
+    }
+
+    &.badge-red {
+      @apply bg-red-100 text-red-700 ring-red-600/10 dark:bg-red-900/40 dark:text-red-500 dark:ring-red-900/60;
+    }
+
+    &.badge-orange {
+      @apply bg-orange-100 text-orange-700 ring-orange-600/20 dark:bg-orange-900/40 dark:text-orange-500 dark:ring-orange-900/60;
+    }
+
+    &.badge-yellow {
+      @apply bg-yellow-100 text-yellow-800 ring-yellow-600/20 dark:bg-yellow-900/40 dark:text-yellow-500/90 dark:ring-yellow-900/60;
+    }
+
+    &.badge-green {
+      @apply bg-green-100 text-green-700 ring-green-600/20 dark:bg-green-900/40 dark:text-green-500/90 dark:ring-green-900/60;
+    }
+
+    &.badge-blue {
+      @apply bg-blue-100 text-blue-700 ring-blue-700/10 dark:bg-blue-900/40 dark:text-blue-400 dark:ring-blue-900/60;
+    }
+
+    &.badge-violet {
+      @apply bg-violet-100 text-violet-700 ring-violet-700/10 dark:bg-violet-900/40 dark:text-violet-400 dark:ring-violet-900/80;
+    }
+  }
+
+  .counter {
+    @apply flex items-center justify-center px-1 border border-solid border-ui-300 rounded-[6rem] text-2xs bg-ui-200 font-semibold  h-4 uppercase select-none cursor-default;
+  }
+}
+
+@layer base {
+  .font-size-inherit {
+    font-size: inherit;
+  }
+}
+

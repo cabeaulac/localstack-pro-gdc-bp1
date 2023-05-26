@@ -1,0 +1,14 @@
+@forward "button";
+@forward "colors";
+@forward "editor";
+@forward "form";
+@forward "global";
+@forward "input";
+@forward "select";
+@forward "text";
+@forward "toggle";
+
+// TAILWIND
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

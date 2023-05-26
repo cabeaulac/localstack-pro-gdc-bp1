@@ -1,0 +1,90 @@
+@layer components {
+  .select {
+    @apply flex justify-between items-center gap-2
+    border border-solid border-ui-300
+    rounded-lg text-ui-800 bg-ui-100
+    h-10 w-full px-3 py-2 text-base
+    focus-visible:outline-0 focus-visible:border-primary-500 focus-visible:shadow-focus
+    transition;
+  }
+
+  .select-borderless {
+    @apply border-0 bg-transparent
+    focus-visible:border;
+  }
+
+  .select-picker {
+    @apply absolute overflow-auto left-0 z-30
+    mt-1.5 py-1.5 max-h-64 min-w-full max-w-fit
+    bg-ui-100 rounded-lg shadow-xl
+    border border-solid border-ui-300
+    focus-visible:outline-0 focus-visible:border-primary-500 focus-visible:shadow-focus
+    transition;
+  }
+
+  .select-option {
+    @apply relative flex pr-12 py-2 pl-3 whitespace-nowrap
+    cursor-pointer transition text-ui-800;
+  }
+
+  .select-option-icon {
+    @apply absolute h-6 my-2 mx-3 w-6 right-0 inset-y-0 flex items-center text-primary-500;
+  }
+
+  .select-icon {
+    @apply flex justify-center w-2 h-auto text-xl fill-ui-700 transition-colors;
+  }
+
+  .select-icon-left {
+    @apply text-ui-700
+  }
+
+  .select-sm {
+    @apply gap-1 h-7 px-2 py-1 text-sm;
+    .select-icon {
+      @apply w-1.5;
+    }
+
+    .select-icon-left {
+      @apply text-base;
+    }
+
+    &.select-borderless {
+      @apply pl-0;
+    }
+  }
+
+  .select-md {
+    @apply gap-2 h-10 px-3 py-2 text-base;
+    .select-icon {
+      @apply w-2;
+    }
+
+    .select-icon-left {
+      @apply text-xl;
+    }
+
+    &.select-borderless {
+      @apply pl-0;
+    }
+  }
+
+  .select-lg {
+    @apply gap-3 h-13 px-4 py-3 text-xl;
+    .select-icon {
+      @apply w-2.5;
+    }
+
+    .select-icon-left {
+      @apply text-2xl;
+    }
+
+    &.select-borderless {
+      @apply pl-0;
+    }
+  }
+
+  .select-error {
+    @apply border-red-500 shadow-focus shadow-red-500/20;
+  }
+}

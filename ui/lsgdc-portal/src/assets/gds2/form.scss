@@ -1,0 +1,21 @@
+@layer components {
+  .form-input {
+    @apply flex w-full flex-col gap-2;
+  }
+
+  .form-toggle {
+    @apply grid grid-cols-[auto_1fr] grid-rows-[auto_auto] gap-x-2 gap-y-1 items-center;
+  }
+
+  .form-label {
+    @apply text-sm font-medium text-ui-800 w-fit;
+  }
+
+  .form-hint {
+    @apply col-start-2 text-sm text-ui-700;
+  }
+
+  .form-error {
+    @apply col-start-2 text-sm text-red-500;
+  }
+}

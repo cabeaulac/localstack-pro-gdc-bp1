@@ -1,0 +1,14 @@
+{
+  "extends": "@vue/tsconfig/tsconfig.json",
+  "include": [
+    "vite.config.*"
+  ],
+  "compilerOptions": {
+    "composite": true,
+    "isolatedModules": true,
+    "types": [
+      "node",
+      "vitest"
+    ]
+  }
+}

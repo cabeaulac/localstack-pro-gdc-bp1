@@ -1,0 +1,54 @@
+// GLOBAL RESET & DEFAULTS
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+*:focus-visible {
+  transition: 0s;
+}
+
+.no-transition,
+.no-transition *,
+.no-transition *::before,
+.no-transition *::after {
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -o-transition: none !important;
+  transition: none !important;
+}
+
+@layer base {
+  html {
+    @apply overflow-x-hidden;
+  }
+
+  body {
+    @apply font-sans font-normal text-ui-900 bg-ui-100 overflow-x-hidden;
+  }
+}
+
+@layer components {
+  .material-symbols-outlined {
+    @apply text-ui-700 select-none;
+    font-variation-settings: 'FILL' 0,
+    'wght' 500,
+    'GRAD' 0,
+    'opsz' 48
+  }
+}
+
+@layer utilities {
+  .justify-normal {
+    justify-content: normal;
+  }
+
+  .scrollbar-none {
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none; /* Safari and Chrome */
+    }
+  }
+}

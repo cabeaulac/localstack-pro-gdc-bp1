@@ -1,0 +1,24 @@
+@layer components {
+  .input {
+    @apply rounded-lg border border-solid border-ui-300
+    indent-3 h-10 pr-3 py-2 text-base w-full text-ui-800 bg-ui-100
+    focus-visible:outline-0 focus-visible:border-primary-500 focus-visible:shadow-focus
+    transition;
+  }
+
+  .input-error {
+    @apply border-red-500 shadow-focus shadow-red-500/20 focus-visible:border-red-500 focus-visible:shadow-focus focus-visible:shadow-red-500/20;
+  }
+
+  .input-sm {
+    @apply h-7 pr-2 py-1 text-sm indent-2;
+  }
+
+  .input-md {
+    @apply h-10 pr-3 py-2 text-base;
+  }
+
+  .input-lg {
+    @apply h-13 pr-4 py-3 text-xl;
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "networkVpc": {
+    "us-west-2": {
+      "vpcMainCidr": "10.0.0.0/26",
+      "tgwCidrRoutes": [
+        "10.0.0.0/8"
+      ],
+      "nonprodRegionalCIDRs": [
+        "10.0.0.0/13"
+      ],
+      "prodRegionalCIDRs": [
+        "10.32.0.0/13"
+      ]
+    },
+    "us-east-1": {
+      "vpcMainCidr": "10.8.0.0/26",
+      "tgwCidrRoutes": [
+        "10.0.0.0/8"
+      ],
+      "nonprodRegionalCIDRs": [
+        "10.8.0.0/13"
+      ],
+      "prodRegionalCIDRs": [
+        "10.40.0.0/13"
+      ]
+    },
+    "eu-west-1": {
+      "vpcMainCidr": "10.16.0.0/26",
+      "tgwCidrRoutes": [
+        "10.0.0.0/8"
+      ],
+      "nonprodRegionalCIDRs": [
+        "10.16.0.0/13"
+      ],
+      "prodRegionalCIDRs": [
+        "10.48.0.0/13"
+      ]
+    },
+    "eu-west-2": {
+      "vpcMainCidr": "10.24.0.0/26",
+      "tgwCidrRoutes": [
+        "10.0.0.0/8"
+      ],
+      "nonprodRegionalCIDRs": [
+        "10.24.0.0/13"
+      ],
+      "prodRegionalCIDRs": [
+        "10.56.0.0/13"
+      ]
+    }
+  },
+  "accounts": [
+    {
+      "accountNum": "000000000000",
+      "accountName": "localstack",
+      "description": "Localstack AWS Account",
+      "regions": [
+        {
+          "region": "us-west-2",
+          "accountType": "LOCALSTACK",
+          "vpcName": "lstack",
+          "vpcConfig": {
+            "cidrBlock": "10.10.0.0/16",
+            "numberOfAvailabilityZones": 3,
+            "subnetCidrMask": 20
+          }
+        }
+      ]
+    },
+    {
+      "accountNum": "YOUR_NONPROD_AWS_ACCOUNT_NUM",
+      "accountName": "NAME_OF_YOUR_ACCOUNT",
+      "description": "MY AWS ACCOUNT DESCRIPTION",
+      "regions": [
+        {
+          "region": "us-west-2",
+          "accountType": "NONPROD",
+          "vpcName": "lsgdc-non",
+          "vpcConfig": {
+            "cidrBlock": "10.0.0.0/18",
+            "numberOfAvailabilityZones": 3,
+            "subnetCidrMask": 21
+          }
+        }
+      ]
+    }
+  ]
+}
