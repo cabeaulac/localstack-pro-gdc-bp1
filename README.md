@@ -88,7 +88,7 @@ This only happens when the system sits idle for awhile, not sure how long. Ref: 
 3. Clone this repos
 
 
-1. Create a file called `.env-gdc` in the root of this repo. Put your Localstack Pro key in it like this
+1. Create a file called `.env-gdc-local` in the root of this repo. Put your Localstack Pro key in it like this
 
 ```shell
 export LOCALSTACK_API_KEY=YOUR_KEY_HERE
