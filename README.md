@@ -153,3 +153,8 @@ So, the first time you run the tests, if you haven't launched and used the UI to
 All subsequent runs should pass.
 
 ![Tests Fail](./docs/img/tests-pass.png "Tests Fail")
+
+# Shout Outs
+The work here is collaborative and made possible by many contributions.
+### [Xander Beaulac](https://gitlab.com/xbeaulac) Big props to Xander for his amazing work on Vue.js X-Components, and UI/UX awesomeness.
+### [Paul Robello](https://gitlab.com/probello) Thank you for being so dissatisfied with the VSCode container I created that you did the giant lift to create the GDC. The IDE-agnostic GDC is fantastic thanks to you!
