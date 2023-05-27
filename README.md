@@ -12,6 +12,12 @@ out.
 This project has a API Gateway (APIGW) REST endpoint, and an APIGW WebSocket (WS) endpoint. Auth is provided by Auth0Mock.
 The UI is Vue.js+tailwind hosted in CloudFront (when deployed to AWS).
 
+### Solution Diagram
+There is a lot that can be done with this blueprint. This is a functional E2E starting point.
+
+![Demo Solution Diagram](./docs/img/lsgdc-bp-solution.jpeg "Demo Solution Diagram")
+
+
 ## UI Pics
 The UI has two parts, a public side, and a private portal. The public side is minimal, but this is where you could host your
 public content and then let users login to the auth-protected private portal.
