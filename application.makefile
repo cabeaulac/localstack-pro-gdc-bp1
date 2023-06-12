@@ -30,6 +30,7 @@ stack-init-application:
 	--plaintext site_host_name=$(SITE_HOST_NAME) \
 	--plaintext app_version=$(APP_VERSION) \
 	--plaintext api_version=v1 \
+	--plaintext local_arch=$(LOCAL_ARCH) \
 	--plaintext hosted_zone_name=$(HOSTED_ZONE_NAME) \
 	--plaintext hosted_zone_id=$(HOSTED_ZONE_ID) \
 	--plaintext aws_region=$(AWS_REGION) \

@@ -7,6 +7,8 @@ import {PulumiUtil} from "../util/pulumi-util";
 
 const config = new pulumi.Config();
 
+export const localArch = config.require("local_arch");
+
 // export const defaultVpc: pulumi.Output<aws.ec2.GetVpcResult> = !stackEnv.endsWith("local") ?
 //     aws.ec2.getVpcOutput({tags: {Name: config.require('vpc_tag_name')}}, {provider: util.PulumiUtil.instance().awsProvider}) :
 //     aws.ec2.getVpcOutput({default: true}, {provider: util.PulumiUtil.instance().awsProvider});

@@ -62,6 +62,7 @@ iac-shared:
 	pushd ./iac/iac-shared && yarn install && yarn run build && popd
 
 stack-init: iac-shared
+	mkdir -p /root/shared/global-iac
 	pushd $(STACK_DIR) && yarn install && popd;
 	pulumi stack select -c $(STACK_PREFIX).$(STACK_SUFFIX) --non-interactive --cwd $(STACK_DIR)
 

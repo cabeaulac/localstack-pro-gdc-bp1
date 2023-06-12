@@ -116,6 +116,8 @@ docker exec -it lsgdc-dev-1 bash -l
 make local-toplevel-deploy
 make local-db-deploy
 make local-lsgdc-deploy
+# Or the command below will run all of the above
+make it-again
 ```
 
 6. Run UI
