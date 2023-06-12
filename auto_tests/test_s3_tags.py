@@ -85,14 +85,14 @@ class TestS3Items():
         """
         # Wait for the event to be set
         counter = 1
-        while counter < 60 * 10:
+        while counter < 15 * 10:
             if self.insert_event.is_set():
                 logger.info("wait_for_insert_s3_item_msg unblocked")
                 break
             else:
                 await asyncio.sleep(0.1)
                 counter += 1
-        if counter == 60 * 10:
+        if counter == 15 * 10:
             pytest.fail("insert s3 item never received message")
         if disconnect_ws:
             self.ws_client.disconnect()
@@ -103,14 +103,14 @@ class TestS3Items():
         """
         # Wait for the event to be set
         counter = 1
-        while counter < 60 * 10:
+        while counter < 15 * 10:
             if self.delete_event.is_set():
                 logger.info("wait_for_delete_s3_item_msg unblocked")
                 break
             else:
                 await asyncio.sleep(0.1)
                 counter += 1
-        if counter == 60 * 10:
+        if counter == 15 * 10:
             pytest.fail("remove item never received message")
         if disconnect_ws:
             self.ws_client.disconnect()

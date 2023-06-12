@@ -3,7 +3,7 @@ import * as pulumi from "@pulumi/pulumi";
 import {asset} from "@pulumi/pulumi";
 import {Input} from "@pulumi/pulumi/output";
 import {Resource} from "@pulumi/pulumi/resource";
-import {mkItemName, mkLogGroup, PulumiUtil} from "../../iac-shared";
+import {mkItemName, mkLogGroup, PulumiUtil, localArch} from "../../iac-shared";
 import {commonLambdaLayerArn} from "./lambdaLayer";
 
 export interface BasicPythonLambdaArgs {
@@ -16,6 +16,12 @@ export interface BasicPythonLambdaArgs {
     layers?: pulumi.Input<string>[];
 }
 
+
+let arch = 'arm64';
+if (PulumiUtil.instance().isLocal && localArch == 'x86_64') {
+    arch = 'x86_64';
+}
+
 export const basicPythonLambda = (
     name: string,
     args: BasicPythonLambdaArgs
@@ -26,7 +32,8 @@ export const basicPythonLambda = (
     const func = new aws.lambda.Function(
         mkItemName(name),
         {
-            runtime: "python3.9",
+            runtime: "python3.10",
+            architectures: [arch],
             code: new asset.FileArchive(args.archiveName),
             layers: [commonLambdaLayerArn, ...(args.layers || [])],
             handler: "app.handler",

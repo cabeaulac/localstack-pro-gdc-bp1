@@ -36,6 +36,7 @@ local-jump%: export STACK_DIR=iac/jumphost
 local-jump%: export STACK_PREFIX=jump
 
 #NONPROD pipeline vars
+non%: export DOCKER_DEFAULT_PLATFORM=linux/arm64
 non%: export IS_LOCAL=false
 non%: export LOGGING_LEVEL=INFO
 non%: export AWS_ACCOUNT=YOUR_NONPRODUCTION_AWS_ACCOUNT_ID
@@ -59,3 +60,6 @@ non-db%: export STACK_PREFIX=db
 
 non-jump%: export STACK_DIR=iac/jumphost
 non-jump%: export STACK_PREFIX=jump
+
+uname_m := $(shell uname -m) # store the output of the command in a variable
+export LOCAL_ARCH=$(uname_m)
