@@ -61,7 +61,9 @@ After cloning this repo, from this working directory, run these commands:
 ## Prerequisites Without GDC
 1. You have LocalStack running
 2. You have dotnet6 installed
-3. Create a pyenv and source it
+3. Create a pyenv and source it.
+
+From the root of this project do:
 ```shell
 make setup-venv
 source venv/bin/activate
