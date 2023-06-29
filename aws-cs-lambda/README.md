@@ -82,7 +82,10 @@ When LocalStack launches the Lambda, it will bind-mount the directory.
 This example is running DockerDesktop on a Mac ARM processor. Notice the `-r linux-arm64` below.
 Change this to `-r linux-x64` if you are on an intel architecture.
 
-From the aws-cs-lambda dir. Or you can just click on this in the README from PyCharm.
+From the aws-cs-lambda dir. Or you can just click on this in the README from PyCharm. Running the steps from PyCharm looks like this.
+
+![RunStepsPycharm](../docs/img/cs-hot-reload-pycharm.png "Run Steps Pycharm")
+
 ```shell
  dotnet publish ./DotnetLambda/src/DotnetLambda/ \
  --output /tmp/hot-reload/lambdas/dotnetlambda \
