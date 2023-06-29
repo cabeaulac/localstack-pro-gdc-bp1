@@ -77,7 +77,7 @@ auto_tests/ls_volume
 **/src/**/*.zip
 **/jwks*.json
 **/*.pem
-
+output.txt
 
 *~
 /.env-temp
