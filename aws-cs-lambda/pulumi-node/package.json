@@ -1,0 +1,11 @@
+{
+  "name": "tl",
+  "devDependencies": {
+    "@types/node": "^20.1.0"
+  },
+  "dependencies": {
+    "@pulumi/aws": "5.40.0",
+    "@pulumi/awsx": "^1.0.2",
+    "@pulumi/pulumi": "^3.66.0"
+  }
+}
