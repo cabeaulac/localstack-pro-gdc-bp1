@@ -58,6 +58,20 @@ After cloning this repo, from this working directory, run these commands:
 
 # Hot Reload Setup
 
+## Prerequisites Without GDC
+1. You have LocalStack running
+2. You have dotnet6 installed
+3. Create a pyenv and source it
+```shell
+make setup-venv
+source venv/bin/activate
+```
+4. Set this python venv as your venv for PyCharm (optional)
+
+If you're using PyCharm, you can just open this README in preview mode and click on the bash steps below.
+
+
+## Dotnet Lambda Hot Reload
 1. Publish code from laptop 
 
 Doing this part from the laptop in order to publish the dotnet Lambda to a directory that is bind mountable by 
