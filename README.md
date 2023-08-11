@@ -78,10 +78,6 @@ Double-clicking on a file will open a S3File detail page. This page does nothing
 ![Development Environment](./docs/img/GenericDevContainer.png "Development Environment")
 
 ### Known Issues
-The WebSocket server returns a blank message for the very first message after the WS endpoint is deployed to LocalStack.
-1. This makes the tests fail the very first time they are run.
-2. This makes the UI miss the first WebSocket message if no tests are run before using the UI. So, you just have do a browser reload after uploading a file for the first time.
-
 After the `kinesis_mock_server` times out, the DynamoDB Stream handler Lambda will never get triggered again. And all WS messages stop flowing from the backend. Restart of the GDC and LocalStack is required at this point.
 This only happens when the system sits idle for awhile, not sure how long. Ref: [LocalStack Issue 5182](https://github.com/localstack/localstack/issues/5182)
 
@@ -155,14 +151,6 @@ make setup-venv
 # Run a hard-coded test 
 make local-lsgdc-test-tags
 ```
-The first WebSocket message sent by the server always sends an empty message. I don't know why yet. See [Known Issues](#known-issues).
-So, the first time you run the tests, if you haven't launched and used the UI to upload a file to S3 yet, they will fail.
-
-![Tests Fail](./docs/img/tests-fail.png "Tests Fail")
-
-All subsequent runs should pass.
-
-![Tests Fail](./docs/img/tests-pass.png "Tests Fail")
 
 # Shout Outs
 The work here is collaborative and made possible by many contributions.
