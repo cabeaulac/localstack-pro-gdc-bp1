@@ -1,16 +1,16 @@
 {
   "name": "db",
   "devDependencies": {
-    "@types/node": "^20.1.0"
+    "@types/node": "^20.5.7"
   },
   "dependencies": {
-    "@aws-sdk/client-cloudfront": "^3.328.0",
-    "@aws-sdk/credential-providers": "^3.328.0",
-    "@pulumi/aws": "5.40.0",
-    "@pulumi/awsx": "^1.0.2",
-    "@pulumi/command": "^0.7.2",
-    "@pulumi/postgresql": "^3.8.0",
-    "@pulumi/pulumi": "^3.66.0",
-    "@pulumi/random": "^4.13.0"
+    "@aws-sdk/client-cloudfront": "^3.398.0",
+    "@aws-sdk/credential-providers": "^3.398.0",
+    "@pulumi/aws": "5.42.0",
+    "@pulumi/awsx": "^1.0.5",
+    "@pulumi/command": "^0.8.2",
+    "@pulumi/postgresql": "^3.9.0",
+    "@pulumi/pulumi": "^3.79.0",
+    "@pulumi/random": "^4.13.2"
   }
 }
