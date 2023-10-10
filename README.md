@@ -85,7 +85,7 @@ This only happens when the system sits idle for awhile, not sure how long. Ref: 
 
 ### Setup
 
-1. [GDC](https://gitlab.com/probello/generic-dev-container) install. 
+1. [GDC](https://github.com/devxpod/GDC) install. 
 2. Follow GDC Setup instructions. (Install DockerDesktop)
 3. Clone this repos
 
